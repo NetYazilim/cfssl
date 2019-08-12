@@ -1,0 +1,17 @@
+{
+   "cn":"Has Holding CA",
+   "names":[
+      {
+         "C":"TR",
+         "O":"Has Global Yat. Holding"
+      }
+   ],
+   "key":{
+      "algo":"rsa",
+      "size":2048
+   },
+   "ca":{
+      "pathlen":0,
+      "expiry":"175200h"
+   }
+}

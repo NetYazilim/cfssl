@@ -1,0 +1,19 @@
+{
+   "cn":"Has Holding Intermediate CA",
+   "names":[
+      {
+         "C":"TR",
+         "O":"Has Global Yat. Holding"
+      }
+   ],
+   "key":{
+      "algo":"rsa",
+      "size":2048
+   },
+   "ca":{
+      "pathlen":0,
+      "expiry":"87600h",
+	  "ca_constraint": {"is_ca": true}
+   }
+}
+

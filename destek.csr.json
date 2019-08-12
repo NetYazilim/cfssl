@@ -1,0 +1,19 @@
+{
+   "cn":"destek",
+   "hosts":[
+      "destek",
+      "destek.has.local"
+   ],
+   "names":[
+      {
+         "C":"TR",
+         "ST":"Istanbul",
+         "O":"Has Global Yat. Holding",
+         "OU":"Bilgi Teknlojileri"
+      }
+   ],
+   "key":{
+      "algo":"rsa",
+      "size":2048
+   }
+}
