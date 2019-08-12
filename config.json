@@ -24,7 +24,8 @@
                     "key encipherment",
                     "server auth",
                     "cert sign",
-                    "crl sign"
+                    "crl sign",
+					"content commitment"
                 ]
             },
             "client": {
