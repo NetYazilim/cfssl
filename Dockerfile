@@ -2,9 +2,8 @@ FROM golang:1.12-alpine
 ARG VERSION=1.3.4
 RUN apk add --upgrade --no-cache git curl gcc libc-dev && \
     go get github.com/cloudflare/cfssl_trust/... && \
-	go get github.com/GeertJohan/go.rice/rice
-
-RUN mkdir -p /go/src/github.com/cloudflare/cfssl
+	go get github.com/GeertJohan/go.rice/rice && \
+    mkdir -p /go/src/github.com/cloudflare/cfssl
 WORKDIR /go/src/github.com/cloudflare/cfssl/
 RUN curl -sSL https://github.com/cloudflare/cfssl/archive/${VERSION}.tar.gz | tar xz --strip 1 && \
     rice embed-go -i=./cli/serve && \
@@ -22,9 +21,9 @@ LABEL maintainer "Levent SAGIROGLU <LSagiroglu@gmail.com>"
 EXPOSE 8888
 COPY --from=0 /go/src/github.com/cloudflare/cfssl_trust/bundle.tar.gz /tmp
 COPY --from=0 /go/src/github.com/cloudflare/cfssl/bin/ /usr/bin
-RUN apk upgrade 
-RUN mkdir /etc/cfssl
-RUN tar -xzf /tmp/bundle.tar.gz -C /etc/cfssl
-RUN rm /tmp/bundle.tar.gz
+RUN apk add --upgrade --no-cache openssl && \
+    mkdir /etc/cfssl && \
+    tar -xzf /tmp/bundle.tar.gz -C /etc/cfssl && \
+    rm /tmp/bundle.tar.gz
 VOLUME ["/shared" ]
 WORKDIR /shared
