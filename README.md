@@ -32,4 +32,4 @@ cat /shared/hasICA.pem /shared/hasCA.pem > /shared/hasCA-chain.pem
 openssl verify -CAfile hasCA-chain.pem /serv/destek.pem
 cat /shared/hasICA.pem /shared/hasCA.pem > /shared/hasCA-chain.pem
 ````
-https://propellered.com/2017/11/13/cfssl_setting_up/
+https://propellered.com/post/cfssl_setting_up/
